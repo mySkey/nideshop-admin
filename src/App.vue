@@ -1,32 +1,96 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="app">
+        <transition name="router-fade" mode="out-in">
+            <router-view></router-view>
+        </transition>
     </div>
-    <router-view/>
-  </div>
 </template>
 
+<script>
+    export default {
+        name: 'nideshop-admin'
+    }
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+    * {
+        margin: 0;
+        padding: 0;
+    }
 
-#nav {
-  padding: 30px;
-}
+    html,
+    body,
+    #app {
+        height: 100%;
+        width: 100%;
+        background: #f5f7f9;
+        font-family: Lato, Helvetica, sans-serif;
+    }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+    a, a:hover {
+        text-decoration: none;
+    }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+    .content-nav {
+        height: 40px;
+        background: #f5f7fa;
+        margin: 0 0 10px 0;
+        display: flex;
+    }
+
+    .content-nav .breadcrumb {
+        height: 40px;
+        line-height: 40px;
+        flex: 1;
+        color: #8492A6;
+    }
+
+    .content-nav .operation-nav {
+        width: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .content-main {
+        padding: 20px;
+        background: #fff;
+    }
+
+    .filter-box {
+        height: auto;
+        overflow: hidden;
+    }
+
+    .page-box {
+        margin-top: 20px;
+        text-align: right;
+    }
+
+    .form-table-box .el-input__inner {
+        max-width: 240px;
+    }
+
+    .form-table-box .el-textarea {
+        width: 400px;
+    }
+
+    .router-fade-enter-active,
+    .router-fade-leave-active {
+        transition: opacity .3s;
+    }
+
+    .router-fade-enter,
+    .router-fade-leave-active {
+        opacity: 0;
+    }
+
+    .form-table-box .el-form {
+        margin-top: 40px;
+    }
+
+    .form-tip{
+        color: #888;
+        font-size: 12px;
+        line-height: 30px;
+    }
 </style>
